@@ -114,7 +114,7 @@ class Game {
         this.lives--;
         // player starts again at the starting piont with the prize in his hand
         this.prizeInHand = true;
-        damageSound.play();
+        //damageSound.play();
 
       }
 
@@ -139,25 +139,25 @@ class Game {
         this.obstaclesArray[0].push(new Obstacle(this.gameScreen, 2 * this.gamespeed, 50, 50, 550, 650, "left", "./images/Car1-test2-green.png"));
       }
     }
-     if (order == 1) {
+    if (order == 1) {
       if (this.frameCount % 130 / (this.gamespeed * 100) === 0 && this.obstaclesArray[1].length < 3) {
         this.obstaclesArray[1].push(new Obstacle(this.gameScreen, 1.5 * this.gamespeed, 50, 50, 500, -100, "right", "./images/Car1-test2.orange.png"));
       }
     }
 
-     if (order == 2) {
+    if (order == 2) {
       if (this.frameCount % 130 / (this.gamespeed * 100) === 0 && this.obstaclesArray[2].length < 3) {
         this.obstaclesArray[2].push(new Obstacle(this.gameScreen, 2.5 * this.gamespeed, 50, 50, 450, 650, "left", "./images/Car1-test2-blue2.png"));
       }
     }
 
-     if (order == 3) {
+    if (order == 3) {
       if (this.frameCount % 200 / (this.gamespeed * 100) === 0 && this.obstaclesArray[3].length < 3) {
         this.obstaclesArray[3].push(new Obstacle(this.gameScreen, 2 * this.gamespeed, 50, 50, 400, -100, "right", "./images/Car1-test2-yellow.png"));
       }
     }
 
-     if (order == 4) {
+    if (order == 4) {
       if (this.frameCount % 130 / (this.gamespeed * 100) === 0 && this.obstaclesArray[4].length < 3) {
         this.obstaclesArray[4].push(new Obstacle(this.gameScreen, 3.5 * this.gamespeed, 50, 100, 350, 650, "left", "./images/truck1.png"));
       }
@@ -195,7 +195,7 @@ class Game {
 
   update() {
 
-    
+
 
     // Set background to darken when the the gameScreen is running
     if (this.gameScreen.style.display === "block"
@@ -231,11 +231,11 @@ class Game {
       // If player did collide, then he will have not the prize in hand.
       this.prizeInHand = false;
       this.player.element.src = "./images/playerUp";
- }
+    }
 
     for (let order = 0; order < 10; order++) {
       this.updateGroupObjectsGround(this.obstaclesArray[order], order);
-  }
+    }
 
 
     // Check the amount of player lives to remove a coin image
@@ -243,17 +243,17 @@ class Game {
     for (let i = 1; i <= 6; i++) {
       const coinElement = document.getElementById(`coin-${i}`);
       if (coinElement) {
-          coinElement.style.display = "none";
+        coinElement.style.display = "none";
       }
-  }
-  
-  // Show the number of coins based on the current number of lives
-  for (let i = 1; i <= this.lives; i++) {
+    }
+
+    // Show the number of coins based on the current number of lives
+    for (let i = 1; i <= this.lives; i++) {
       const coinElement = document.getElementById(`coin-${i}`);
       if (coinElement) {
-          coinElement.style.display = "block"; 
+        coinElement.style.display = "block";
       }
-  }
+    }
 
     // Check the ammount of coins to add them
     if (this.score === 1) {
@@ -268,7 +268,7 @@ class Game {
       document.getElementById("coin-5").style.display = "block";
       document.getElementById("coin-6").style.display = "block";
     }
-   
+
 
     // Check if player has deposited the prize at the end zone and returned back to the starting point
     if (this.prizeInHand === false && this.player.touchDepositArea(this.depositPrize) === true) {
