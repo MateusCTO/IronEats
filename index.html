@@ -14,19 +14,19 @@
     <main>
       <!-- Initial screen of the page where the user will land and where they can start the game -->
       <div id="start-screen">
-        <img src="./images/logo.png" alt="logo" />
+        <img id = "imgLogo" src="./images/logo.png" alt="logo" />
         <br />
         <div class="button-box">
-          <button id="play-button">Play now!</button>
-          <button id="instructions-button">Instructions</button>
-          <button id="credits-button">Credits</button>
-        </div>
+              <button id="play-button">Play now!</button>
+              <button id="instructions-button">Instructions</button>
+              <button id="credits-button">Credits</button>
+         </div>
       </div>
 
       <!-- Game screen where the game will take place -->
       <div id="game-container">
         <div id="player-coins">
-          <h3 id="health-counter">Money:</h3>
+          <h3 id="health-counter">IronCoins:</h3>
           <img id="coin-1" src="./images/coin.png" alt="" />
           <img id="coin-2" src="./images/coin.png" alt="" />
           <img id="coin-3" src="./images/coin.png" alt="" />
@@ -44,8 +44,7 @@
       </div>
       <div id="instructions-screen">
         <div class="text-box">
-          <!-- <p>You're in Lisbon and specifically craving 5 pastéis de nata.</p>
-                <p>Get ready to cross the busy Lisbon traffic and the Tagus river to get those sweet sweet pastéis de nata and bring them back home</p> -->
+          <p>You're a delivery guy trying to make some money, don't lose it or you gonna be broke. You don't want to lose the pizza!</p>
         </div>
         <h3>Instructions</h3>
         <ul>
@@ -60,18 +59,15 @@
           </li>
 
           <li>
-            <img src="./images/boat1blue.png" alt="boat" />To cross the river,
-            you are going to have to jump on the boats, if you miss, you'll
-            drown
+            <img id="inst-image" src="./images/train1.png" alt="boat" />Be carefull with the trans, don't try to get a ride, they're already full!
           </li>
 
           <li>
-            <img src="./images/pastel.png" alt="pastel-de-nata" />Once you have
-            a pastél de nata, you have to bring it back to the start
+            <img id="inst-image" src="./images/coin.png" alt="coin-image" /> IronCoins is the most important item here.
           </li>
 
           <li class="instructions-motivation">
-            <strong>Get 5 of them to win!</strong>
+            <strong>Get five coins to win!</strong>
           </li>
         </ul>
         <button class="restart-button">Back to menu?</button>
@@ -85,20 +81,20 @@
         <h3>Credits</h3>
         <div class="coding-credits">
           <ul>
-            <li><strong>Coding</strong></li>
-            <li>Manueal Segarra</li>
-            <li>Gonçalo Matias</li>
+            <li><strong>Game Base</strong></li>
+            <li>Piyush</li>
+            <li>Mateus Farias</li>
           </ul>
           <ul>
-            <li><strong>Photoshop</strong></li>
-            <li>Manuel Segarra</li>
+            <li><strong>Game Base</strong></li>
+            <li>Manueal Segarra</li>
             <li>Gonçalo Matias</li>
           </ul>
         </div>
         <div class="remaining-credits">
           <ul>
             <li><strong>Assets</strong></li>
-            <li>big boats and player: Gamefreak</li>
+            <li>cars and player: kenney-assets</li>
             <li>medium boats: spaceemotion from DeviantArt</li>
             <li>cars: Kenney from kenney-assets.itch.io</li>
             <li>Interface: Mounir Tohami from mounirtohami.itch.io</li>
@@ -106,12 +102,13 @@
           <ul>
             <li><strong>Special thanks to:</strong></li>
             <li>Ironhack</li>
-            <li>Pastéis de nata</li>
+            <li>Bernardo</li>
+            <li>Mariana</li>
           </ul>
           <h4>Find us on:</h4>
           <ul>
-            <li>Gonçalo Matias</li>
-            <li>Manuel Segarra</li>
+            <li><a id="link-github" src="https://github.com/MateusCTO" href="" target="_blank">Mateus Farias</a> </li>
+            <li><a id="link-github" src="https://github.com/piyush13101994" href="">Piyush</a></li>
           </ul>
         </div>
 

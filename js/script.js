@@ -35,7 +35,7 @@ window.onload = function () {
     console.log("start game");
     game = new Game();
     game.start();
-    backgroundMusic.play();
+    //backgroundMusic.play();
   }
 
   function instructions() {
