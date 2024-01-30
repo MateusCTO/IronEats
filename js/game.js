@@ -23,14 +23,14 @@ class Game {
     this.lives = 3;
 
     // Controls of the gamespeed
-    this.gamespeed = 0.5;
+    this.gamespeed = 1;
 
 
     // Player's score system
-    this.score = 0;
+    //this.score = 0;
 
     // Visual queue for the score
-    this.scoreArray = [];
+    //this.scoreArray = [];
 
     // Game State Boolean
     this.gameIsOver = false;
@@ -147,7 +147,7 @@ class Game {
 
     if (order == 2) {
       if (this.frameCount % 130 / (this.gamespeed * 100) === 0 && this.obstaclesArray[2].length < 3) {
-        this.obstaclesArray[2].push(new Obstacle(this.gameScreen, 2.5 * this.gamespeed, 50, 50, 450, 650, "left", "./images/Car1-test2-blue2.png"));
+        this.obstaclesArray[2].push(new Obstacle(this.gameScreen, 1.5 * this.gamespeed, 50, 100, 450, 650, "left", "./images/train1.png"));
       }
     }
 
@@ -170,13 +170,13 @@ class Game {
 
     if (order == 6) {
       if (this.frameCount % 150 / (this.gamespeed * 20) === 0 && this.obstaclesArray[6].length < 3) {
-        this.obstaclesArray[6].push(new Obstacle(this.gameScreen, 1.5 * this.gamespeed, 50, 100, 200, -100, "right", "./images/boat1blue.png"));
+        this.obstaclesArray[6].push(new Obstacle(this.gameScreen, 1.5 * this.gamespeed, 50, 100, 200, -100, "right", "./images/train1.png"));
       }
     }
 
     if (order == 7) {
       if (this.frameCount % 150 / (this.gamespeed * 20) === 0 && this.obstaclesArray[7].length < 3) {
-        this.obstaclesArray[7].push(new Obstacle(this.gameScreen, 2.5 * this.gamespeed, 50, 100, 150, 650, "left", "./images/bigboat1.png"));
+        this.obstaclesArray[7].push(new Obstacle(this.gameScreen, 10 * this.gamespeed, 50, 100, 150, 650, "left", "./images/Car2-black.png"));
       }
     }
 
@@ -187,7 +187,7 @@ class Game {
     }
     if (order == 9) {
       if (this.frameCount % 150 / (this.gamespeed * 20) === 0 && this.obstaclesArray[9].length < 3) {
-        this.obstaclesArray[9].push(new Obstacle(this.gameScreen, 3.5 * this.gamespeed, 50, 100, 50, 650, "left", "./images/boatMedium2.png"));
+        this.obstaclesArray[9].push(new Obstacle(this.gameScreen, 3.5 * this.gamespeed, 50, 100, 50, 650, "left", "./images/truck2.png"));
       }
     }
 
@@ -217,8 +217,7 @@ class Game {
       this.endGame();
     }
 
-
-    if (this.score === 3) {
+    if (this.lives === 6) {
       this.victoryGame();
     }
 
@@ -230,7 +229,11 @@ class Game {
 
       // If player did collide, then he will have not the prize in hand.
       this.prizeInHand = false;
+<<<<<<< HEAD
       this.player.element.src = "./images/playerUp";
+=======
+      this.player.element.src = "./images/playerUp.png";
+>>>>>>> 0a142176b948a87b22b89b018b69f937c53e88a4
     }
 
     for (let order = 0; order < 10; order++) {
@@ -256,14 +259,14 @@ class Game {
     }
 
     // Check the ammount of coins to add them
-    if (this.score === 1) {
+    if (this.lives === 4) {
       document.getElementById("coin-4").style.display = "block";
     }
-    else if (this.score === 2) {
+    else if (this.lives === 5) {
       document.getElementById("coin-4").style.display = "block";
       document.getElementById("coin-5").style.display = "block";
     }
-    else if (this.score === 3) {
+    else if (this.lives === 6) {
       document.getElementById("coin-4").style.display = "block";
       document.getElementById("coin-5").style.display = "block";
       document.getElementById("coin-6").style.display = "block";
@@ -275,10 +278,10 @@ class Game {
 
       // When player reaches the deposit zone, remove prize in hand, add to total score and increase the overall speed of all obstacles.
       this.prizeInHand = true;
-      this.score++;
+      this.lives++;
       this.gamespeed += 0.2;
-      this.player.element.src = "./images/playerPizza.png";
-      successSound.play()
+      this.player.element.src = "./images/playerPizzaUp.png";
+      //successSound.play()
       console.log(`Game speed has now been increased to${this.gamespeed}`);
     }
 
@@ -339,16 +342,16 @@ class Game {
     // show victory game screen
     this.victoryScreen.style.display = 'block';
 
-    backgroundMusic.pause();
-    backgroundMusic.currentTime = 0;
+    //backgroundMusic.pause();
+    //backgroundMusic.currentTime = 0;
 
-    let victoryMusic = new Audio('./audio/victory.wav')
-    victoryMusic.play();
+    //let victoryMusic = new Audio('./audio/victory.wav')
+    //victoryMusic.play();
   }
 
 }
 
-let backgroundMusic = new Audio('./audio/backgroundSong.wav');
-let damageSound = new Audio('./audio/damage.wav');
-let pastelSound = new Audio('./audio/pastel.wav');
-let successSound = new Audio('./audio/success.wav');
+//let backgroundMusic = new Audio('./audio/backgroundSong.wav');
+//let damageSound = new Audio('./audio/damage.wav');
+//let pastelSound = new Audio('./audio/pastel.wav');
+//let successSound = new Audio('./audio/success.wav');
