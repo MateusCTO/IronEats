@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iron Eats</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <!--Initial game screen, before the game starts-->
+      <div id="start-screen">
+        <div class="logo-img">
+          <img src="./images/logo.png" alt="logo" />
+        </div>
+        <div class="button-box">
+          <button id="play-button">Play now!</button>
+          <button id="instructions-button">Instructions</button>
+          <button id="credits-button">Credits</button>
+        </div>
+      </div>
+
+      <!-- Game screen where the game will take place -->
+      <div id="game-container">
+        <div id="player-coins">
+          <h3 id="coins-counter">Iron Coins:</h3>
+          <img id="coin-1" src="./images/coin.png" alt="" />
+          <img id="coin-2" src="./images/coin.png" alt="" />
+          <img id="coin-3" src="./images/coin.png" alt="" />
+          <img id="coin-3" src="./images/coin.png" alt="" />
+          <img id="coin-3" src="./images/coin.png" alt="" />
+        </div>
+      </div>
+      <div id="game-screen"></div>
+      <!-- This is the end game screen, after the player loses all Iron Coins-->
+      <div id="end-screen">
+        <h1>Game Over</h1>
+        <br />
+        <button class="restart-button">Restart</button>
+      </div>
+      <div id="victory-screen">
+        <h1>You did it, good job, proud of you!</h1>
+        <br />
+        <button class="restart-button">Play again?</button>
+      </div>
+      <!-- <div id="instructions-screen">
+        <div class="text-box">
+            <p>You're in Lisbon and specifically craving 5 pastéis de nata.</p>
+            <p>Get ready to cross the busy Lisbon traffic and the Tagus river to get those sweet sweet pastéis de nata and bring them back home</p>
+        </div>
+        <h3>Instructions</h3>
+        <ul>
+            <li><img src="./images/Car1-test2-blue.png" alt="car">Avoid the cars or you'll get run over</li>
+    
+            <li><img src="./images/truck1.png" alt="truck">Avoid the trucks or you will also get run over</li>
+            
+            <li><img src="./images/boat1blue.png" alt="boat">To cross the river, you are going to have to jump on the boats, if you miss, you'll drown</li>
+            
+            <li><img src="./images/pastel.png" alt="pastel-de-nata">Once you have a pastél de nata, you have to bring it back to the start</li>
+            
+            <li class="instructions-motivation"><strong>Get 5 of them to win!</strong></li>
+        </ul>
+        <button class="restart-button">Back to menu?</button>
+    </div> -->
+      <!-- <div id="credits-screen">
+      <h3>Credits</h3>
+    </div> -->
+    </main>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/death-zone.js"></script>
+    <script type="text/javascript" src="js/obstacles.js"></script>
+    <script type="text/javascript" src="js/DepositPrizeZone.js"></script>
+    <script type="text/javascript" src="js/GetPrizeZone.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+  </body>
+</html>
