@@ -164,7 +164,7 @@ class Game {
     }
     if (order == 5) {
       if (this.frameCount % 200 / (this.gamespeed * 20) === 0 && this.obstaclesArray[5].length < 3) {
-        this.obstaclesArray[5].push(new Obstacle(this.gameScreen, 2 * this.gamespeed, 50, 100, 250, 650, "left", "./images/boatMedium.png"));
+        this.obstaclesArray[5].push(new Obstacle(this.gameScreen, 2 * this.gamespeed, 50, 100, 250, 650, "left", "./images/truck2.png"));
       }
     }
 
@@ -176,13 +176,13 @@ class Game {
 
     if (order == 7) {
       if (this.frameCount % 150 / (this.gamespeed * 20) === 0 && this.obstaclesArray[7].length < 3) {
-        this.obstaclesArray[7].push(new Obstacle(this.gameScreen, 10 * this.gamespeed, 50, 100, 150, 650, "left", "./images/Car2-black.png"));
+        this.obstaclesArray[7].push(new Obstacle(this.gameScreen, 2.5 * this.gamespeed, 50, 100, 150, 650, "left", "./images/Car2-black.png"));
       }
     }
 
     if (order == 8) {
       if (this.frameCount % 150 / (this.gamespeed * 20) === 0 && this.obstaclesArray[8].length < 3) {
-        this.obstaclesArray[8].push(new Obstacle(this.gameScreen, 2 * this.gamespeed, 50, 100, 100, -100, "right", "./images/boat1orange.png"));
+        this.obstaclesArray[8].push(new Obstacle(this.gameScreen, 2 * this.gamespeed, 50, 50, 100, -100, "right", "./images/Car1-test2-blue.png"));
       }
     }
     if (order == 9) {
