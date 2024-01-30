@@ -1,5 +1,5 @@
 * {
-  font-family: VT323;
+  font-family: Pixelify Sans;
   font-size: 30px;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
   color: white;
@@ -7,7 +7,7 @@
 body {
   padding: 0;
   text-align: center;
-  font-family: VT323;
+  font-family: Pixelify Sans;
   background-image: url("../images/Background.png");
   background-size: cover;
 }
@@ -38,65 +38,62 @@ main {
   margin-top: 70px;
   border-radius: 5px;
   background-color: transparent;
-  #start-screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #game-container {
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: top;
-    width: 900px;
-    height: 900px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    display: none;
-  }
-
-  #game-screen {
-    display: none;
-    background-color: rgb(54, 54, 54);
-    position: absolute;
-    overflow: hidden;
-    width: 650px;
-    height: 650px;
-    background-image: url("../images/gameScreen.png");
-  }
-
-  #victory-screen {
-    display: none;
-  }
-
-  #end-screen {
-    display: none;
-    margin-top: 300px;
-  }
-
-  #player-coins {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 40px;
-    margin-left: 50px;
-    margin-top: 50px;
-    text-align: center;
-    
-    
-  }
-  #player-coins img {
-    margin-right: 10px;
-    height: 40px;
-   
-  }
-
   padding: 0;
   padding-bottom: 10px;
   border: none;
+}
+
+#start-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-container {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
+  width: 900px;
+  height: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: none;
+}
+
+#game-screen {
+  display: none;
+  background-color: rgb(54, 54, 54);
+  position: absolute;
+  overflow: hidden;
+  width: 650px;
+  height: 650px;
+  background-image: url("../images/gameScreen.png");
+}
+
+#victory-screen {
+  display: none;
+}
+
+#end-screen {
+  display: none;
+  margin-top: 300px;
+}
+
+#player-coins {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 40px;
+  margin-left: 50px;
+  margin-top: 50px;
+  text-align: center;
+}
+#player-coins img {
+  margin-right: 10px;
+  height: 40px;
 }
 
 #instructions-button {
@@ -162,7 +159,7 @@ main {
   overflow: hidden;
   width: 650px;
   height: 650px;
-  background-image: url("../images/gameScreen.png");
+  background-image: url("../images/gameScreen1.png");
 }
 #start-screen {
   display: flex;
