@@ -24,6 +24,11 @@ main {
   height: 300px;
 }
 
+.button-box {
+  display: flex;
+  flex-direction: column;
+}
+
 
 .button-box > button:hover{
     background-color: #494949 !important;
@@ -36,7 +41,7 @@ main {
 #play-button {
   width: 300px;
   height: 60px;
-  margin-top: 70px;
+  margin-top: 50px;
   border-radius: 30px;
   background-color: #f6b93b;
   padding: 0;
@@ -46,14 +51,14 @@ main {
   display: inline-block;
   transition: all 0.3s ease 0s; 
   font-size: 40px;
-  margin-right: 20px;
+  
  }
 
 
 #instructions-button {
   width: 300px;
   height: 60px;
-  margin-top: 70px;
+  margin-top: 20px;
   border-radius: 30px;
   background-color: #f6b93b;
   padding: 0;
@@ -63,13 +68,13 @@ main {
   display: inline-block;
   transition: all 0.3s ease 0s; 
   font-size: 40px;
-  margin-right: 20px;
+  
 }
 
 #credits-button {
   width: 300px;
   height: 60px;
-  margin-top: 150px;
+  margin-top: 20px;
   border-radius: 30px;
   background-color: #f6b93b;
   padding: 0;

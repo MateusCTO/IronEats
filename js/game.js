@@ -25,13 +25,6 @@ class Game {
     // Controls of the gamespeed
     this.gamespeed = 1;
 
-
-    // Player's score system
-    //this.score = 0;
-
-    // Visual queue for the score
-    //this.scoreArray = [];
-
     // Game State Boolean
     this.gameIsOver = false;
 
@@ -92,7 +85,6 @@ class Game {
     this.frameCount++;
   }
 
-  // Method that handles the first 5 rows of obstacles (aka the cars)
   // It handles spawns (pushing to obstaclesArray), collision with player and removal of obstacles once they are outside of specified boundaries. 
   updateGroupObjectsGround(arr, order) {
 
@@ -146,7 +138,7 @@ class Game {
     }
 
     if (order == 2) {
-      if (this.frameCount % 130 / (this.gamespeed * 100) === 0 && this.obstaclesArray[2].length < 3) {
+      if (this.frameCount % 150 / (this.gamespeed * 100) === 0 && this.obstaclesArray[2].length < 3) {
         this.obstaclesArray[2].push(new Obstacle(this.gameScreen, 1.5 * this.gamespeed, 50, 100, 450, 650, "left", "./images/train1.png"));
       }
     }
@@ -163,30 +155,30 @@ class Game {
       }
     }
     if (order == 5) {
-      if (this.frameCount % 200 / (this.gamespeed * 20) === 0 && this.obstaclesArray[5].length < 3) {
+      if (this.frameCount % 200 / (this.gamespeed * 100) === 0 && this.obstaclesArray[5].length < 3) {
         this.obstaclesArray[5].push(new Obstacle(this.gameScreen, 2 * this.gamespeed, 50, 100, 250, 650, "left", "./images/truck2.png"));
       }
     }
 
     if (order == 6) {
-      if (this.frameCount % 150 / (this.gamespeed * 20) === 0 && this.obstaclesArray[6].length < 3) {
+      if (this.frameCount % 150 / (this.gamespeed * 100) === 0 && this.obstaclesArray[6].length < 3) {
         this.obstaclesArray[6].push(new Obstacle(this.gameScreen, 1.5 * this.gamespeed, 50, 100, 200, -100, "right", "./images/train1.png"));
       }
     }
 
     if (order == 7) {
-      if (this.frameCount % 150 / (this.gamespeed * 20) === 0 && this.obstaclesArray[7].length < 3) {
+      if (this.frameCount % 150 / (this.gamespeed * 100) === 0 && this.obstaclesArray[7].length < 3) {
         this.obstaclesArray[7].push(new Obstacle(this.gameScreen, 2.5 * this.gamespeed, 50, 100, 150, 650, "left", "./images/Car2-black.png"));
       }
     }
 
     if (order == 8) {
-      if (this.frameCount % 150 / (this.gamespeed * 20) === 0 && this.obstaclesArray[8].length < 3) {
+      if (this.frameCount % 150 / (this.gamespeed * 100) === 0 && this.obstaclesArray[8].length < 3) {
         this.obstaclesArray[8].push(new Obstacle(this.gameScreen, 2 * this.gamespeed, 50, 50, 100, -100, "right", "./images/Car1-test2-blue.png"));
       }
     }
     if (order == 9) {
-      if (this.frameCount % 150 / (this.gamespeed * 20) === 0 && this.obstaclesArray[9].length < 3) {
+      if (this.frameCount % 150 / (this.gamespeed * 100) === 0 && this.obstaclesArray[9].length < 3) {
         this.obstaclesArray[9].push(new Obstacle(this.gameScreen, 3.5 * this.gamespeed, 50, 100, 50, 650, "left", "./images/truck2.png"));
       }
     }
@@ -229,11 +221,7 @@ class Game {
 
       // If player did collide, then he will have not the prize in hand.
       this.prizeInHand = false;
-<<<<<<< HEAD
-      this.player.element.src = "./images/playerUp";
-=======
       this.player.element.src = "./images/playerUp.png";
->>>>>>> 0a142176b948a87b22b89b018b69f937c53e88a4
     }
 
     for (let order = 0; order < 10; order++) {
@@ -279,7 +267,7 @@ class Game {
       // When player reaches the deposit zone, remove prize in hand, add to total score and increase the overall speed of all obstacles.
       this.prizeInHand = true;
       this.lives++;
-      this.gamespeed += 0.2;
+      //this.gamespeed += 0.2;
       this.player.element.src = "./images/playerPizzaUp.png";
       //successSound.play()
       console.log(`Game speed has now been increased to${this.gamespeed}`);
