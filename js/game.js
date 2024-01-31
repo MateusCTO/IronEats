@@ -267,7 +267,7 @@ class Game {
       // When player reaches the deposit zone, remove prize in hand, add to total score and increase the overall speed of all obstacles.
       this.prizeInHand = true;
       this.lives++;
-      //this.gamespeed += 0.2;
+      this.gamespeed += 0.2;
       this.player.element.src = "./images/playerPizzaUp.png";
       //successSound.play()
       console.log(`Game speed has now been increased to${this.gamespeed}`);
@@ -292,6 +292,8 @@ class Game {
 
     });
 
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
     // variable becomes true
     this.gameIsOver = true;
 
@@ -330,8 +332,8 @@ class Game {
     // show victory game screen
     this.victoryScreen.style.display = 'block';
 
-    //backgroundMusic.pause();
-    //backgroundMusic.currentTime = 0;
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
 
     //let victoryMusic = new Audio('./audio/victory.wav')
     //victoryMusic.play();
@@ -339,7 +341,7 @@ class Game {
 
 }
 
-//let backgroundMusic = new Audio('./audio/backgroundSong.wav');
+let backgroundMusic = new Audio('./sounds/game.wma');
 //let damageSound = new Audio('./audio/damage.wav');
 //let pastelSound = new Audio('./audio/pastel.wav');
 //let successSound = new Audio('./audio/success.wav');

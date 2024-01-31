@@ -1,7 +1,6 @@
 * {
   font-family: Pixelify Sans;
-  font-size: 30px;
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+  /*text-shadow: 2px 2px rgba(0, 0, 0, 0.5);*/
   margin: 0 0;
   padding: 0 0;
 }
@@ -19,81 +18,82 @@ main {
 }
 
 #imgLogo {
-  padding-top: 100px;
-  height: 300px;
+  padding-top: 50px;
+  height: 200px;
 }
 
 .button-box {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 
 .button-box > button:hover {
   background-color: #494949 !important;
-  border-radius: 50px;
-  color: white;
+  color: white !important;
   border-color: #494949 !important;
-  transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s !important;
+  height: 80px !important;
+  box-shadow: 0 0 5px #ffee10 !important;
+  text-shadow: 0 0 5px #ffee10 !important;
 }
 
 #play-button {
   width: 300px;
   height: 60px;
   margin-top: 50px;
-  border-radius: 30px;
-  background-color: #f6b93b;
+  background-color: green;
+  color: #f6b93b;
+  border: 4px solid #f6b93b;
+  border-radius: 50px;
   padding: 0;
   padding-bottom: 10px;
-  color: white;
-  border: 4px solid #f6b93b;
   display: inline-block;
   transition: all 0.3s ease 0s;
   font-size: 40px;
-  
- }
-
+  box-shadow: 0 0 5px #ffee10;
+  text-shadow: 0 0 5px #ffee10;
+}
 
 #instructions-button {
   width: 300px;
   height: 60px;
   margin-top: 20px;
-  border-radius: 30px;
-  background-color: #f6b93b;
+  border-radius: 50px;
+  background-color: green;
   padding: 0;
   padding-bottom: 10px;
-  color: white;
+  color: #f6b93b;
   border: 4px solid #f6b93b;
   display: inline-block;
   transition: all 0.3s ease 0s;
   font-size: 40px;
-  
+  box-shadow: 0 0 5px #ffee10;
+  text-shadow: 0 0 5px #ffee10;
 }
 
 #credits-button {
   width: 300px;
   height: 60px;
   margin-top: 20px;
-  border-radius: 30px;
-  background-color: #f6b93b;
+  border-radius: 50px;
+  background-color: green;
   padding: 0;
   padding-bottom: 10px;
-  color: white;
+  color: #f6b93b;
   border: 4px solid #f6b93b;
   display: inline-block;
   transition: all 0.3s ease 0s;
   font-size: 40px;
+  box-shadow: 0 0 5px #ffee10;
+  text-shadow: 0 0 5px #ffee10;
 }
 
 #start-screen {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
-}
-
-#end-screen {
-  display: none;
-  margin-top: 300px;
 }
 
 #player-coins {
@@ -106,32 +106,33 @@ main {
   text-align: center;
   color: black;
 }
+
 #player-coins img {
   margin-right: 10px;
   height: 40px;
 }
 
 .restart-button {
-  background-image: url("../images/button-background.png");
-  background-size: cover;
-  width: 225px;
-  height: 50px;
-  border-radius: 5px;
-  background-color: transparent;
-  padding: 0;
+  width: 200px;
+  height: 60px;
   margin-top: 20px;
-  padding-bottom: 10px;
-  margin-bottom: 70px;
-  border: none;
+  border-radius: 30px;
+  background-color: green;
+  padding: 0;
+  color: #f6b93b;
+  border: 4px solid #f6b93b;
+  /*   display: inline-block; */
+  transition: all 0.3s ease 0s;
+  font-size: 25px;
 }
 
 #game-container {
   background-image: url("../images/pizza-border.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: top;
-  width: 900px;
-  height: 900px;
+  width: 880px;
+  height: 880px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,11 +146,11 @@ main {
 
 #game-screen {
   display: none;
-  background-color: rgb(54, 54, 54);
+  background-size: cover;
   position: absolute;
   overflow: hidden;
-  width: 650px;
-  height: 650px;
+  /*   width: 650px; */
+  height: 620px;
   background-image: url("../images/gameScreen1.png");
 }
 
@@ -157,8 +158,28 @@ main {
   display: none;
 }
 
-#end-screen,
-#victory-screen,
+#victory-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  margin: 100px;
+  color: #43b343;
+  font-size: 40px;
+}
+
+#end-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  margin-top: 100px;
+  color: #43b343;
+  font-size: 60px;
+}
+
 #credits-screen {
   display: flex;
   flex-direction: column;
@@ -169,8 +190,7 @@ main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 840px;
-  height: 838px;
+  height: 625px;
 }
 
 #instructions-screen {
@@ -183,9 +203,9 @@ main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 840px;
-  height: 838px;
-  padding-top: 120px;
+  width: auto;
+  height: 625px;
+  font-size: 20px;
 }
 
 #inst-image {
@@ -225,31 +245,43 @@ main {
   list-style-type: none;
 }
 
-#credits-screen h3 {
-  margin: 130px 0 0 0;
+#credits-screen h2 {
+  margin: 50px 0 0 0;
 }
 
 .coding-credits {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  margin-left: 200px;
-  margin-right: 200px;
-  align-items: center;
+  justify-content: space-between;
+  margin: 20px 150px 20px 150px;
+}
+
+.coding-credits ul {
+  margin: 0px 10px;
 }
 
 .remaining-credits {
   margin-top: -10px;
 }
 
+.remaining-credits ul {
+  margin: 20px 0px;
+}
+
 #credits-screen .restart-button {
-  margin-top: -30px;
+  margin-top: 20px;
 }
 
 #link-github {
-  font-size: 25px;
+  font-size: 20px;
   text-decoration: none;
   color: black;
+  justify-content: center;
+}
+
+.github-img {
+  height: 20px;
+  width: auto;
 }
 
 #health-counter {
