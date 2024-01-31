@@ -1,6 +1,6 @@
 //  class for the zone where the player will acquire a prize upon reaching
 // Takes place at the highest layer of the gamescreen with a "height" of 50.
-class GetPrizeZone {
+class DeliverPizzaZone {
 
   constructor(gameScreen) {
 
