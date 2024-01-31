@@ -2,7 +2,6 @@
   font-family: Pixelify Sans;
   font-size: 30px;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
-  color: white;
   margin: 0 0;
   padding: 0 0;
 }
@@ -24,13 +23,12 @@ main {
   height: 300px;
 }
 
-
-.button-box > button:hover{
-    background-color: #494949 !important;
-    border-radius: 50px;
-    color: white;
-    border-color: #494949 !important;
-    transition: all 0.3s ease 0s;
+.button-box > button:hover {
+  background-color: #494949 !important;
+  border-radius: 50px;
+  color: white;
+  border-color: #494949 !important;
+  transition: all 0.3s ease 0s;
 }
 
 #play-button {
@@ -42,13 +40,12 @@ main {
   padding: 0;
   padding-bottom: 10px;
   color: white;
-  border:4px solid #f6b93b;
+  border: 4px solid #f6b93b;
   display: inline-block;
-  transition: all 0.3s ease 0s; 
+  transition: all 0.3s ease 0s;
   font-size: 40px;
   margin-right: 20px;
- }
-
+}
 
 #instructions-button {
   width: 300px;
@@ -59,9 +56,9 @@ main {
   padding: 0;
   padding-bottom: 10px;
   color: white;
-  border:4px solid #f6b93b;
+  border: 4px solid #f6b93b;
   display: inline-block;
-  transition: all 0.3s ease 0s; 
+  transition: all 0.3s ease 0s;
   font-size: 40px;
   margin-right: 20px;
 }
@@ -75,11 +72,10 @@ main {
   padding: 0;
   padding-bottom: 10px;
   color: white;
-  border:4px solid #f6b93b;
+  border: 4px solid #f6b93b;
   display: inline-block;
-  transition: all 0.3s ease 0s; 
+  transition: all 0.3s ease 0s;
   font-size: 40px;
-  
 }
 
 #start-screen {
@@ -87,33 +83,6 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-#game-container {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: top;
-  width: 900px;
-  height: 900px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  display: none;
-}
-
-#game-screen {
-  display: none;
-  background-color: rgb(54, 54, 54);
-  position: absolute;
-  overflow: hidden;
-  width: 650px;
-  height: 650px;
-  background-image: url("../images/gameScreen.png");
-}
-
-#victory-screen {
-  display: none;
 }
 
 #end-screen {
@@ -126,15 +95,15 @@ main {
   flex-direction: row;
   align-items: center;
   height: 40px;
-  margin-left: 50px;
-  margin-top: 50px;
+  margin-left: 203px;
+  margin-top: 72px;
   text-align: center;
+  color: black;
 }
 #player-coins img {
   margin-right: 10px;
   height: 40px;
 }
-
 
 .restart-button {
   background-image: url("../images/button-background.png");
@@ -151,7 +120,7 @@ main {
 }
 
 #game-container {
-  background-image: url("../images/border.png");
+  background-image: url("../images/pizza-border.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top;
@@ -177,17 +146,7 @@ main {
   height: 650px;
   background-image: url("../images/gameScreen1.png");
 }
-#start-screen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
-#end-screen {
-  display: none;
-  margin-top: 300px;
-}
 #victory-screen {
   display: none;
 }
@@ -200,7 +159,7 @@ main {
   justify-content: center;
   align-items: center;
   display: none;
-  background-image: url("../images/border.png");
+  background-image: url("../images/pizza-border.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -209,7 +168,6 @@ main {
 }
 
 #instructions-screen {
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -284,52 +242,13 @@ main {
 
 #link-github {
   font-size: 25px;
+  text-decoration: none;
+  color: black;
 }
 
-#player-coins {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 40px;
-  margin-left: 50px;
-  margin-top: 50px;
-  text-align: center;
-}
-
-#player-coins img {
-  margin-right: 10px;
-  height: 40px;
-}
 #health-counter {
   margin: 0 10px 0 0;
   text-align: center;
-}
-
-#pasteis {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 40px;
-  margin-left: 50px;
-  margin-top: 718px;
-  text-align: center;
-}
-
-#pasteis-counter {
-  margin: 0 10px 0 0;
-  text-align: center;
-}
-
-#pasteis-counter img {
-  margin-right: 10px;
-  height: 40px;
-}
-
-#pastel-1,
-#pastel-2,
-#pastel-3,
-#pastel-4 {
-  display: none;
 }
 
 #instructions-screen ul {
