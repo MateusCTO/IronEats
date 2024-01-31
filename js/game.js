@@ -11,7 +11,7 @@ class Game {
     this.gameContainer = document.getElementById('game-container');
 
     // Creating the zone property where the player acquires the prize
-    this.getPrize = new GetPrizeZone(this.gameScreen);
+    this.getPrize = new DeliverPizzaZone(this.gameScreen);
 
     // Variable for frame count
     this.frameCount = 0;
