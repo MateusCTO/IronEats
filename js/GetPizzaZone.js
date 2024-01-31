@@ -1,6 +1,6 @@
 // Class for the invisible zone where the player will need to deposit the prize.
 // This zone is also the starting zone where the player is at the start of the game.
-class DepositPrizeZone {
+class GetPizzaZone {
 
   constructor(gameScreen) {
 

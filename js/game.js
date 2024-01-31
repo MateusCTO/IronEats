@@ -17,7 +17,7 @@ class Game {
     this.frameCount = 0;
 
     // Creating prize deposit zone property
-    this.depositPrize = new DepositPrizeZone(this.gameScreen);
+    this.depositPrize = new GetPizzaZone(this.gameScreen);
 
     // Player's life system
     this.coins = 3;
