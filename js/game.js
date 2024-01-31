@@ -229,11 +229,7 @@ class Game {
 
       // If player did collide, then he will have not the prize in hand.
       this.prizeInHand = false;
-<<<<<<< HEAD
-      this.player.element.src = "./images/playerUp";
-=======
       this.player.element.src = "./images/playerUp.png";
->>>>>>> 0a142176b948a87b22b89b018b69f937c53e88a4
     }
 
     for (let order = 0; order < 10; order++) {
