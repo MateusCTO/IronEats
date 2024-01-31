@@ -20,7 +20,7 @@ class Game {
     this.depositPrize = new DepositPrizeZone(this.gameScreen);
 
     // Player's life system
-    this.lives = 3;
+    this.coins = 3;
 
     // Controls of the gamespeed
     this.gamespeed = 1;
@@ -103,7 +103,7 @@ class Game {
         this.player.top = 600;
 
         // Reduce player's life by 1
-        this.lives--;
+        this.coins--;
         // player starts again at the starting piont with the prize in his hand
         this.prizeInHand = true;
         //damageSound.play();
@@ -187,29 +187,14 @@ class Game {
 
   update() {
 
+    document.body.style.backgroundImage = "url('./images/Background2.png')";
 
-
-    // Set background to darken when the the gameScreen is running
-    if (this.gameScreen.style.display === "block"
-      || this.victoryScreen.style.display === "block"
-      || this.endScreen.style.display === "block"
-      || this.creditsScreen.style.display === "block"
-      || this.instructionsScreen.style.display === "block"
-    ) {
-      document.body.style.backgroundImage = "url('./images/Background2.png')";
-    }
-
-    // Score and lives system
-    let score = document.getElementById('score');
-    let lives = document.getElementById('lives');
-
-
-    // End/lose the game if lives are 0
-    if (this.lives <= 0) {
+    // End/lose the game if coins are 0
+    if (this.coins <= 0) {
       this.endGame();
     }
 
-    if (this.lives === 6) {
+    if (this.coins === 4) {
       this.victoryGame();
     }
 
@@ -229,7 +214,7 @@ class Game {
     }
 
 
-    // Check the amount of player lives to remove a coin image
+    // Check the amount of player coins to remove a coin image
 
     for (let i = 1; i <= 6; i++) {
       const coinElement = document.getElementById(`coin-${i}`);
@@ -238,8 +223,8 @@ class Game {
       }
     }
 
-    // Show the number of coins based on the current number of lives
-    for (let i = 1; i <= this.lives; i++) {
+    // Show the number of coins based on the current number of coins
+    for (let i = 1; i <= this.coins; i++) {
       const coinElement = document.getElementById(`coin-${i}`);
       if (coinElement) {
         coinElement.style.display = "block";
@@ -247,14 +232,14 @@ class Game {
     }
 
     // Check the ammount of coins to add them
-    if (this.lives === 4) {
+    if (this.coins === 4) {
       document.getElementById("coin-4").style.display = "block";
     }
-    else if (this.lives === 5) {
+    else if (this.coins === 5) {
       document.getElementById("coin-4").style.display = "block";
       document.getElementById("coin-5").style.display = "block";
     }
-    else if (this.lives === 6) {
+    else if (this.coins === 6) {
       document.getElementById("coin-4").style.display = "block";
       document.getElementById("coin-5").style.display = "block";
       document.getElementById("coin-6").style.display = "block";
@@ -266,7 +251,7 @@ class Game {
 
       // When player reaches the deposit zone, remove prize in hand, add to total score and increase the overall speed of all obstacles.
       this.prizeInHand = true;
-      this.lives++;
+      this.coins++;
       this.gamespeed += 0.2;
       this.player.element.src = "./images/playerPizzaUp.png";
       //successSound.play()
