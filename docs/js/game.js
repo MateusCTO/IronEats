@@ -85,11 +85,7 @@ class Game {
     ]
 
     const config = obstaclesDetails[order];
-<<<<<<< HEAD:js/game.js
 const { speed, height, width, top, startPosition, moveDirection, imgSrc } = config;
-=======
-    const { speed, height, width, top, startPosition, moveDirection, imgSrc } = config;
->>>>>>> refs/remotes/origin/main:docs/js/game.js
 
     for (let i = 0; i < obstaclesDetails.length; i++) {
       if (order === i && this.obstaclesArray[i].length < 1) {
