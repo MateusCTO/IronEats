@@ -60,6 +60,7 @@ class Game {
         this.player.left = 300;
         this.player.top = 600;
         this.coins--;
+        this.gamespeed -= 0.6;
         gotHitSound.play();
         this.pizzaInHand = true;
       }
@@ -102,7 +103,7 @@ class Game {
       this.endGame();
     }
 
-    if (this.coins === 4) {
+    if (this.coins === 5) {
       this.victoryGame();
     }
 
