@@ -5,18 +5,18 @@ class Player {
     this.gameScreen = gameScreen;
 
     this.left = left;
-  
+
     this.top = top;
 
     this.width = width;
-  
+
     this.height = height;
-  
+
     this.element = document.createElement('img');
- 
+
     this.element.style.position = 'absolute';
     this.element.src = imgSrc;
-  
+
     this.element.style.width = `${width}px`;
     this.element.style.height = `${height}px`;
     this.element.style.top = `${top}px`;
@@ -27,17 +27,17 @@ class Player {
 
 
   stayInPlay() {
-  
+
     if (this.left + this.width > this.gameScreen.offsetWidth) {
       this.left = this.gameScreen.offsetWidth - this.width;
     }
 
-  
+
     else if (this.left < 0) {
       this.left = 0;
     }
 
- 
+
     if (this.top + this.height > this.gameScreen.offsetHeight) {
       this.top = this.gameScreen.offsetHeight - this.height;
     }
@@ -50,7 +50,7 @@ class Player {
   }
 
 
-  
+
   updatePosition() {
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
@@ -73,7 +73,6 @@ class Player {
   }
 
   touchDepositArea(prizeCheck) {
-
     const playerRect = this.element.getBoundingClientRect();
     const prizeCheckRect = prizeCheck.element.getBoundingClientRect();
 
@@ -90,7 +89,7 @@ class Player {
   }
 
   didCollide(obstacle) {
-    
+
     const playerRect = this.element.getBoundingClientRect();
     const obstacleRect = obstacle.element.getBoundingClientRect();
 

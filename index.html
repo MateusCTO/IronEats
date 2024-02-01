@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Iron Eats</title>
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="./docs/styles/styles.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap"
       rel="stylesheet"
@@ -12,31 +12,28 @@
   </head>
   <body>
     <main>
-      <!-- Initial screen of the page where the user will land and where they can start the game -->
       <div id="start-screen">
         <div class="button-box">
           <button id="play-button">Play now!</button>
           <button id="instructions-button">Instructions</button>
           <button id="credits-button">Credits</button>
         </div>
-        <img id="imgLogo" src="./images/logo.png" alt="logo" />
+        <img id="imgLogo" src="./docs/images/logo.png" alt="logo" />
         <br />
       </div>
 
-      <!-- Game screen where the game will take place -->
       <div id="game-container">
         <div id="player-coins">
           <h3 id="health-counter">IronCoins:</h3>
-          <img id="coin-1" src="./images/coin.png" alt="" />
-          <img id="coin-2" src="./images/coin.png" alt="" />
-          <img id="coin-3" src="./images/coin.png" alt="" />
-          <img id="coin-4" src="./images/coin.png" alt="" />
-          <img id="coin-5" src="./images/coin.png" alt="" />
-          <img id="coin-6" src="./images/coin.png" alt="" />
+          <img id="coin-1" src="./docs/images/coin.png" alt="" />
+          <img id="coin-2" src="./docs/images/coin.png" alt="" />
+          <img id="coin-3" src="./docs/images/coin.png" alt="" />
+          <img id="coin-4" src="./docs/images/coin.png" alt="" />
+          <img id="coin-5" src="./docs/images/coin.png" alt="" />
+          <img id="coin-6" src="./docs/images/coin.png" alt="" />
         </div>
       </div>
       <div id="game-screen"></div>
-      <!-- Screen after the player loses the game and where they can restart it -->
       <div id="end-screen">
         <h1>Game Over</h1>
         <br />
@@ -52,29 +49,29 @@
         <h3>Instructions</h3>
         <ul>
           <li>
-            <img src="./images/Car1-test2-blue.png" alt="car" />Avoid the cars
-            or you'll get run over
+            <img src="./docs/images/Car1-test2-blue.png" alt="car" />Avoid the
+            cars or you'll get run over
           </li>
 
           <li>
-            <img src="./images/truck1.png" alt="truck" />Avoid the trucks or you
-            will also get run over
+            <img src="./docs/images/truck1.png" alt="truck" />Avoid the trucks
+            or you will also getdocs/ run over
           </li>
 
           <li>
-            <img id="inst-image" src="./images/train1.png" alt="boat" />Be
+            <img id="inst-image" src="./docs/images/train1.png" alt="boat" />Be
             carefull with the trains, don't try to get a ride, they're already
             full!
           </li>
 
           <li>
-            <img id="inst-image" src="./images/coin.png" alt="coin-image" />
+            <img
+              id="inst-image"
+              src="./docs/images/coin.png"
+              alt="coin-image"
+            />
             IronCoins is the most important item here. Get six to win!
           </li>
-
-          <!-- <li class="instructions-motivation">
-            <strong>Get five coins to win!</strong>
-          </li> -->
         </ul>
         <button class="restart-button">Back to menu?</button>
       </div>
@@ -100,8 +97,8 @@
         <div class="remaining-credits">
           <ul>
             <li><strong>Assets</strong></li>
-            <li>player: kenney-assets</li>
-            <li>cars: Kenney from kenney-assets.itch.io</li>
+            <li>player and cars: kenney-assets</li>
+            <li>music: level 1 - Eluzai</li>
             <li>Interface: based on the game Lisbon Crosser</li>
           </ul>
           <ul>
@@ -114,7 +111,7 @@
           <ul>
             <h4>Find us on:</h4>
             <li>
-              <img class="github-img" src="./images/github.jpeg" alt="" />
+              <img class="github-img" src="./docs/images/github.jpeg" alt="" />
               <a
                 id="link-github"
                 href="https://github.com/MateusCTO"
@@ -123,7 +120,7 @@
               >
             </li>
             <li>
-              <img class="github-img" src="./images/github.jpeg" alt="" />
+              <img class="github-img" src="./docs/images/github.jpeg" alt="" />
               <a
                 id="link-github"
                 href="https://github.com/piyush13101994"
@@ -137,11 +134,11 @@
         <button class="restart-button">Back to menu?</button>
       </div>
     </main>
-    <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/player.js"></script>
-    <script type="text/javascript" src="js/obstacles.js"></script>
-    <script type="text/javascript" src="js/GetPizzaZone.js"></script>
-    <script type="text/javascript" src="js/DeliverPizzaZone.js"></script>
-    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="./docs/js/player.js"></script>
+    <script type="text/javascript" src="./docs/js/script.js"></script>
+    <script type="text/javascript" src="./docs/js/obstacles.js"></script>
+    <script type="text/javascript" src="./docs/js/GetPizzaZone.js"></script>
+    <script type="text/javascript" src="./docs/js/DeliverPizzaZone.js"></script>
+    <script type="text/javascript" src="./docs/js/game.js"></script>
   </body>
 </html>
