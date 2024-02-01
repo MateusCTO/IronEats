@@ -16,7 +16,7 @@ class Game {
 
     this.coins = 3;
 
-    this.gamespeed = 1;
+    this.gamespeed = 1.3;
 
     this.gameIsOver = false;
 
@@ -60,7 +60,7 @@ class Game {
         this.player.left = 300;
         this.player.top = 600;
         this.coins--;
-        this.gamespeed -= 0.6;
+        this.gamespeed -= 0.2;
         gotHitSound.play();
         this.pizzaInHand = true;
       }
@@ -72,16 +72,16 @@ class Game {
 
 
     const obstaclesDetails = [
-      { speed: 2, height: 50, width: 50, top: 550, startPosition: 650, moveDirection: "left", imgSrc: "./docs/images/Car1-test2-green.png" },
-      { speed: 1.5, height: 50, width: 50, top: 500, startPosition: -100, moveDirection: "right", imgSrc: "./docs/images/Car1-test2.orange.png" },
+      { speed: 2.5, height: 50, width: 50, top: 550, startPosition: 650, moveDirection: "left", imgSrc: "./docs/images/Car1-test2-green.png" },
+      { speed: 4, height: 50, width: 50, top: 500, startPosition: -100, moveDirection: "right", imgSrc: "./docs/images/Car1-test2.orange.png" },
       { speed: 3, height: 50, width: 100, top: 450, startPosition: 650, moveDirection: "left", imgSrc: "./docs/images/train1.png" },
-      { speed: 2, height: 50, width: 50, top: 400, startPosition: -100, moveDirection: "right", imgSrc: "./docs/images/Car1-test2-yellow.png" },
+      { speed: 2.5, height: 50, width: 50, top: 400, startPosition: -100, moveDirection: "right", imgSrc: "./docs/images/Car1-test2-yellow.png" },
       { speed: 3.5, height: 50, width: 100, top: 350, startPosition: 650, moveDirection: "left", imgSrc: "./docs/images/truck1.png" },
-      { speed: 2, height: 50, width: 100, top: 250, startPosition: 650, moveDirection: "left", imgSrc: "./docs/images/truck2.png" },
-      { speed: 1.5, height: 50, width: 100, top: 200, startPosition: -100, moveDirection: "right", imgSrc: "./docs/images/train1.png" },
+      { speed: 2.5, height: 50, width: 100, top: 250, startPosition: 650, moveDirection: "left", imgSrc: "./docs/images/truck2.png" },
+      { speed: 3, height: 50, width: 100, top: 200, startPosition: -100, moveDirection: "right", imgSrc: "./docs/images/train1.png" },
       { speed: 2.5, height: 50, width: 100, top: 150, startPosition: 650, moveDirection: "left", imgSrc: "./docs/images/Car2-black.png" },
-      { speed: 2, height: 50, width: 50, top: 100, startPosition: -100, moveDirection: "right", imgSrc: "./docs/images/Car1-test2-blue.png" },
-      { speed: 3.5, height: 50, width: 100, top: 50, startPosition: 650, moveDirection: "left", imgSrc: "./docs/images/truck2.png" }
+      { speed: 4, height: 50, width: 50, top: 100, startPosition: -100, moveDirection: "right", imgSrc: "./docs/images/Car1-test2-blue.png" },
+      { speed: 3, height: 50, width: 100, top: 50, startPosition: 650, moveDirection: "left", imgSrc: "./docs/images/truck2.png" }
     ]
 
     const config = obstaclesDetails[order];
@@ -90,6 +90,9 @@ class Game {
     for (let i = 0; i < obstaclesDetails.length; i++) {
       if (order === i && this.obstaclesArray[i].length < 1) {
         this.obstaclesArray[i].push(new Obstacle(this.gameScreen, speed * this.gamespeed, height, width, top, startPosition, moveDirection, imgSrc));
+        setInterval(() => {
+          this.obstaclesArray[i].push(new Obstacle(this.gameScreen, speed * this.gamespeed, height, width, top, startPosition, moveDirection, imgSrc));
+        }, 2000)
       }
     }
 
@@ -103,7 +106,7 @@ class Game {
       this.endGame();
     }
 
-    if (this.coins === 5) {
+    if (this.coins === 6) {
       this.victoryGame();
     }
 
@@ -134,7 +137,7 @@ class Game {
     if (this.pizzaInHand === false && this.player.touchDepositArea(this.getPizza) === true) {
       this.pizzaInHand = true;
       this.coins++;
-      this.gamespeed += 0.8;
+      this.gamespeed += 0.2;
       this.player.element.src = "./docs/images/playerPizzaUp.png";
     }
   }
