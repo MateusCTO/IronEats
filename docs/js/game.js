@@ -22,7 +22,7 @@ class Game {
 
     this.pizzaInHand = true;
 
-    this.player = new Player(this.gameScreen, 300, 600, 50, 50, "./images/playerPizzaDown.png");
+    this.player = new Player(this.gameScreen, 300, 600, 50, 50, "./docs/images/playerPizzaDown.png");
 
     this.obstaclesArray = [[], [], [], [], [], [], [], [], [], []];
 
@@ -72,16 +72,16 @@ class Game {
 
 
     const obstaclesDetails = [
-      { speed: 2, height: 50, width: 50, top: 550, startPosition: 650, moveDirection: "left", imgSrc: "./images/Car1-test2-green.png" },
-      { speed: 1.5, height: 50, width: 50, top: 500, startPosition: -100, moveDirection: "right", imgSrc: "./images/Car1-test2.orange.png" },
-      { speed: 3, height: 50, width: 100, top: 450, startPosition: 650, moveDirection: "left", imgSrc: "./images/train1.png" },
-      { speed: 2, height: 50, width: 50, top: 400, startPosition: -100, moveDirection: "right", imgSrc: "./images/Car1-test2-yellow.png" },
-      { speed: 3.5, height: 50, width: 100, top: 350, startPosition: 650, moveDirection: "left", imgSrc: "./images/truck1.png" },
-      { speed: 2, height: 50, width: 100, top: 250, startPosition: 650, moveDirection: "left", imgSrc: "./images/truck2.png" },
-      { speed: 1.5, height: 50, width: 100, top: 200, startPosition: -100, moveDirection: "right", imgSrc: "./images/train1.png" },
-      { speed: 2.5, height: 50, width: 100, top: 150, startPosition: 650, moveDirection: "left", imgSrc: "./images/Car2-black.png" },
-      { speed: 2, height: 50, width: 50, top: 100, startPosition: -100, moveDirection: "right", imgSrc: "./images/Car1-test2-blue.png" },
-      { speed: 3.5, height: 50, width: 100, top: 50, startPosition: 650, moveDirection: "left", imgSrc: "./images/truck2.png" }
+      { speed: 2, height: 50, width: 50, top: 550, startPosition: 650, moveDirection: "left", imgSrc: "./docs/images/Car1-test2-green.png" },
+      { speed: 1.5, height: 50, width: 50, top: 500, startPosition: -100, moveDirection: "right", imgSrc: "./docs/images/Car1-test2.orange.png" },
+      { speed: 3, height: 50, width: 100, top: 450, startPosition: 650, moveDirection: "left", imgSrc: "./docs/images/train1.png" },
+      { speed: 2, height: 50, width: 50, top: 400, startPosition: -100, moveDirection: "right", imgSrc: "./docs/images/Car1-test2-yellow.png" },
+      { speed: 3.5, height: 50, width: 100, top: 350, startPosition: 650, moveDirection: "left", imgSrc: "./docs/images/truck1.png" },
+      { speed: 2, height: 50, width: 100, top: 250, startPosition: 650, moveDirection: "left", imgSrc: "./docs/images/truck2.png" },
+      { speed: 1.5, height: 50, width: 100, top: 200, startPosition: -100, moveDirection: "right", imgSrc: "./docs/images/train1.png" },
+      { speed: 2.5, height: 50, width: 100, top: 150, startPosition: 650, moveDirection: "left", imgSrc: "./docs/images/Car2-black.png" },
+      { speed: 2, height: 50, width: 50, top: 100, startPosition: -100, moveDirection: "right", imgSrc: "./docs/images/Car1-test2-blue.png" },
+      { speed: 3.5, height: 50, width: 100, top: 50, startPosition: 650, moveDirection: "left", imgSrc: "./docs/images/truck2.png" }
     ]
 
     const config = obstaclesDetails[order];
@@ -97,7 +97,7 @@ class Game {
 
   update() {
 
-    document.body.style.backgroundImage = "url('./images/Background2.png')";
+    document.body.style.backgroundImage = "url('./docs/images/Background2.png')";
 
     if (this.coins <= 0) {
       this.endGame();
@@ -111,7 +111,7 @@ class Game {
 
     if (this.player.gotPrize(this.deliverPizza)) {
       this.pizzaInHand = false;
-      this.player.element.src = "./images/playerUp.png";
+      this.player.element.src = "./docs/images/playerUp.png";
       pizzaSound.play();
       pizzaSound.loop = false;
     }
@@ -135,7 +135,7 @@ class Game {
       this.pizzaInHand = true;
       this.coins++;
       this.gamespeed += 0.8;
-      this.player.element.src = "./images/playerPizzaUp.png";
+      this.player.element.src = "./docs/images/playerPizzaUp.png";
     }
   }
 
@@ -177,8 +177,8 @@ class Game {
   }
 }
 
-let backgroundMusic = new Audio("./sounds/game.wma");
-let winingSong = new Audio("./sounds/winScreen.wma");
-let gameOverSound = new Audio("./sounds/endscreen.mp3")
-let gotHitSound = new Audio("./sounds/carHorn.mp3")
-let pizzaSound = new Audio("./sounds/pizzaa.mp3")
+let backgroundMusic = new Audio("./docs/sounds/game.wma");
+let winingSong = new Audio("./docs/sounds/winScreen.wma");
+let gameOverSound = new Audio("./docs/sounds/endscreen.mp3")
+let gotHitSound = new Audio("./docs/sounds/carHorn.mp3")
+let pizzaSound = new Audio("./docs/sounds/pizzaa.mp3")
