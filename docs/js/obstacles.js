@@ -5,7 +5,7 @@ class Obstacle {
     this.speed = speed;
     this.top = top;
     this.startPosition = startPosition;
-    this.moveDirection = moveDirection; 
+    this.moveDirection = moveDirection;
 
 
     this.width = width;
@@ -40,9 +40,6 @@ class Obstacle {
       this.updatePosition();
     }
   }
- 
-
-
 }
 
 

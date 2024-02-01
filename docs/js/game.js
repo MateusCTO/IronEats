@@ -49,7 +49,7 @@ class Game {
     window.requestAnimationFrame(() => this.gameLoop());
   }
 
-  updateGroupObjectsGround(arr, order) {
+  updateGroupObjects(arr, order) {
     for (let i = 0; i < arr.length; i++) {
 
       const obstacle = arr[i];
@@ -117,7 +117,7 @@ class Game {
     }
 
     for (let order = 0; order < 10; order++) {
-      this.updateGroupObjectsGround(this.obstaclesArray[order], order);
+      this.updateGroupObjects(this.obstaclesArray[order], order);
     }
 
     for (let i = 1; i <= 6; i++) {
