@@ -1,7 +1,7 @@
 class Game {
   constructor() {
 
-    // Variables to later refer to the different possible screens of the webpage
+  
     this.startScreen = document.getElementById('start-screen');
     this.gameScreen = document.getElementById('game-screen');
     this.endScreen = document.getElementById('end-screen');
@@ -10,202 +10,106 @@ class Game {
     this.victoryScreen = document.getElementById('victory-screen');
     this.gameContainer = document.getElementById('game-container');
 
-    // Creating the zone property where the player acquires the prize
-    this.getPrize = new DeliverPizzaZone(this.gameScreen);
+    this.deliverPizza = new DeliverPizzaZone(this.gameScreen);
 
-    // Variable for frame count
-    this.frameCount = 0;
+    this.getPizza = new GetPizzaZone(this.gameScreen);
 
-    // Creating prize deposit zone property
-    this.depositPrize = new GetPizzaZone(this.gameScreen);
-
-    // Player's life system
     this.coins = 3;
 
-    // Controls of the gamespeed
     this.gamespeed = 1;
 
-    // Game State Boolean
     this.gameIsOver = false;
 
-    // game over flag
-    this.gameIsOver = false;
+    this.pizzaInHand = true;
 
-    //  player starts with pizza in his hand
-    this.prizeInHand = true;
-
-    // Creating the player property
     this.player = new Player(this.gameScreen, 300, 600, 50, 50, "./images/playerPizzaDown.png");
 
-    //might be deprecated, UNSURE
-    // Tracker if player is on top of an obstacle)
-    // this.playerInObstacle = false;
+    this.obstaclesArray = [[], [], [], [], [], [], [], [], [], []];
 
-
-    // Create the obstacles array of arrays
-    this.obstaclesArray = [[], [], [], [], [], [], [], [], [], [], []];
-
-    //define the height and width we want to apply to the gameScreen once game is running 
     this.height = 650;
     this.width = 650;
-
-    // gameScreen will by default have 0x 
-    // When variable game is assigned to Game class and initialized, the gameScreen will have the height and width defined above.
-    this.gameScreen.style.height = `${this.height}px`;
-    this.gameScreen.style.width = `${this.width}px`;
   }
 
-  // Method to start the game
   start() {
-
-    // Change the  "windows" to display and to disappear
     this.startScreen.style.display = 'none';
     this.endScreen.style.display = 'none';
     this.gameScreen.style.display = 'block';
     this.gameContainer.style.display = 'block';
-
-    // Run the gameloop
+    this.gameScreen.style.height = `${this.height}px`;
+    this.gameScreen.style.width = `${this.width}px`;
+  
     this.gameLoop();
   }
 
-  // Method of the gameloop
   gameLoop() {
-
-
-    // checks if the game is over to interrupt the game loop, else is just runs the update method
     if (this.gameIsOver) {
       return;
     }
-
     this.update();
-
-    // javascript magic to make animations and the game update via frames
-    window.requestAnimationFrame(() => this.gameLoop());
-    // increased the frameCount variable by 1 each time it loops so we can store the current frame as the game is being played
-    this.frameCount++;
+     window.requestAnimationFrame(() => this.gameLoop());
   }
 
-  // It handles spawns (pushing to obstaclesArray), collision with player and removal of obstacles once they are outside of specified boundaries. 
   updateGroupObjectsGround(arr, order) {
+      for (let i = 0; i < arr.length; i++) {
 
-    // Check for collision and position of each obstacle in the given array
-    for (let i = 0; i < arr.length; i++) {
-
-      // grabs an obstacle and runs its move method so they actively move throughout the screen
       const obstacle = arr[i];
       obstacle.move();
 
-      // Check if the player collided with an obstacle
-      if (this.player.didCollide(obstacle)) {
-
-        // player returns to his starting position
+      if (this.player.didCollide(obstacle) ) {
+        
         this.player.left = 300;
         this.player.top = 600;
-
-        // Reduce player's life by 1
         this.coins--;
-        // player starts again at the starting piont with the prize in his hand
-        this.prizeInHand = true;
-        //damageSound.play();
-
-      }
-
-      // Check if the obstacle is beyond the given boundaries (either left or right)
+     
+        this.pizzaInHand = true;
+    }
       else if (obstacle.left < -100 || obstacle.left + obstacle.width > 750) {
-
-        // Remove the obstacle from the HTML
         obstacle.element.remove();
-
-        // Remove the object from the array
         this.obstaclesArray[order].splice(i, 1);
+      }
+    }
+    
 
-      }
-    }
+     const obstaclesDetails = [
+      { speed: 2, height: 50, width: 50, top: 550, startPosition: 650, moveDirection: "left", imgSrc: "./images/Car1-test2-green.png" },
+      { speed: 1.5, height: 50, width: 50, top: 500, startPosition: -100, moveDirection: "right", imgSrc: "./images/Car1-test2.orange.png" },
+      { speed: 3, height: 50, width: 100, top: 450, startPosition: 650, moveDirection: "left", imgSrc: "./images/train1.png" },
+      { speed: 2, height: 50, width: 50, top: 400, startPosition: -100, moveDirection: "right", imgSrc: "./images/Car1-test2-yellow.png" },
+      { speed: 3.5, height: 50, width: 100, top: 350, startPosition: 650, moveDirection: "left", imgSrc: "./images/truck1.png" },
+      { speed: 2, height: 50, width: 100, top: 250, startPosition: 650, moveDirection: "left", imgSrc: "./images/truck2.png" },
+      { speed: 1.5, height: 50, width: 100, top: 200, startPosition: -100, moveDirection: "right", imgSrc: "./images/train1.png" },
+      { speed: 2.5, height: 50, width: 100, top: 150, startPosition: 650, moveDirection: "left", imgSrc: "./images/Car2-black.png" },
+      { speed: 2, height: 50, width: 50, top: 100, startPosition: -100, moveDirection: "right", imgSrc: "./images/Car1-test2-blue.png" },
+      { speed: 3.5, height: 50, width: 100, top: 50, startPosition: 650, moveDirection: "left", imgSrc: "./images/truck2.png" }
+    ]
 
-    //gameScreen, speed, height, width, top, startPosition, moveDirection, imgSrc
+    const config = obstaclesDetails[order];
+  const { speed, height, width, top, startPosition, moveDirection, imgSrc } = config;
 
-    // with the method parameter "order", we specify which object we want to push at a given time and which array inside the main array do we want to push it to.
-    // we can control in with frame interval each obstacle spawns in their respective row and the max amount of objects per row
-    if (order == 0) {
-      if (this.frameCount % 110 / (this.gamespeed * 100) === 0 && this.obstaclesArray[0].length < 3) {
-        this.obstaclesArray[0].push(new Obstacle(this.gameScreen, 2 * this.gamespeed, 50, 50, 550, 650, "left", "./images/Car1-test2-green.png"));
-      }
+  for (let i = 0; i < obstaclesDetails.length; i++) {
+    if (order === i && this.obstaclesArray[i].length < 1) {
+      this.obstaclesArray[i].push(new Obstacle(this.gameScreen, speed * this.gamespeed, height, width, top, startPosition, moveDirection, imgSrc));
     }
-    if (order == 1) {
-      if (this.frameCount % 130 / (this.gamespeed * 100) === 0 && this.obstaclesArray[1].length < 3) {
-        this.obstaclesArray[1].push(new Obstacle(this.gameScreen, 1.5 * this.gamespeed, 50, 50, 500, -100, "right", "./images/Car1-test2.orange.png"));
-      }
-    }
-
-    if (order == 2) {
-      if (this.frameCount % 150 / (this.gamespeed * 100) === 0 && this.obstaclesArray[2].length < 3) {
-        this.obstaclesArray[2].push(new Obstacle(this.gameScreen, 1.5 * this.gamespeed, 50, 100, 450, 650, "left", "./images/train1.png"));
-      }
-    }
-
-    if (order == 3) {
-      if (this.frameCount % 200 / (this.gamespeed * 100) === 0 && this.obstaclesArray[3].length < 3) {
-        this.obstaclesArray[3].push(new Obstacle(this.gameScreen, 2 * this.gamespeed, 50, 50, 400, -100, "right", "./images/Car1-test2-yellow.png"));
-      }
-    }
-
-    if (order == 4) {
-      if (this.frameCount % 130 / (this.gamespeed * 100) === 0 && this.obstaclesArray[4].length < 3) {
-        this.obstaclesArray[4].push(new Obstacle(this.gameScreen, 3.5 * this.gamespeed, 50, 100, 350, 650, "left", "./images/truck1.png"));
-      }
-    }
-    if (order == 5) {
-      if (this.frameCount % 200 / (this.gamespeed * 100) === 0 && this.obstaclesArray[5].length < 3) {
-        this.obstaclesArray[5].push(new Obstacle(this.gameScreen, 2 * this.gamespeed, 50, 100, 250, 650, "left", "./images/truck2.png"));
-      }
-    }
-
-    if (order == 6) {
-      if (this.frameCount % 150 / (this.gamespeed * 100) === 0 && this.obstaclesArray[6].length < 3) {
-        this.obstaclesArray[6].push(new Obstacle(this.gameScreen, 1.5 * this.gamespeed, 50, 100, 200, -100, "right", "./images/train1.png"));
-      }
-    }
-
-    if (order == 7) {
-      if (this.frameCount % 150 / (this.gamespeed * 100) === 0 && this.obstaclesArray[7].length < 3) {
-        this.obstaclesArray[7].push(new Obstacle(this.gameScreen, 2.5 * this.gamespeed, 50, 100, 150, 650, "left", "./images/Car2-black.png"));
-      }
-    }
-
-    if (order == 8) {
-      if (this.frameCount % 150 / (this.gamespeed * 100) === 0 && this.obstaclesArray[8].length < 3) {
-        this.obstaclesArray[8].push(new Obstacle(this.gameScreen, 2 * this.gamespeed, 50, 50, 100, -100, "right", "./images/Car1-test2-blue.png"));
-      }
-    }
-    if (order == 9) {
-      if (this.frameCount % 150 / (this.gamespeed * 100) === 0 && this.obstaclesArray[9].length < 3) {
-        this.obstaclesArray[9].push(new Obstacle(this.gameScreen, 3.5 * this.gamespeed, 50, 100, 50, 650, "left", "./images/truck2.png"));
-      }
-    }
-
   }
 
+  }
+ 
   update() {
 
     document.body.style.backgroundImage = "url('./images/Background2.png')";
 
-    // End/lose the game if coins are 0
     if (this.coins <= 0) {
       this.endGame();
     }
 
-    if (this.coins === 4) {
+    if (this.coins === 6) {
       this.victoryGame();
     }
 
-    // Player's method for ensuring it stays inside of the gameScreen's boundaries
     this.player.stayInPlay();
 
-    // Check to see if player has collided with the prize zone
-    if (this.player.gotPrize(this.getPrize)) {
-
-      // If player did collide, then he will have not the prize in hand.
-      this.prizeInHand = false;
+    if (this.player.gotPrize(this.deliverPizza)) {
+      this.pizzaInHand = false;
       this.player.element.src = "./images/playerUp.png";
     }
 
@@ -213,120 +117,56 @@ class Game {
       this.updateGroupObjectsGround(this.obstaclesArray[order], order);
     }
 
-
-    // Check the amount of player coins to remove a coin image
-
-    for (let i = 1; i <= 6; i++) {
-      const coinElement = document.getElementById(`coin-${i}`);
-      if (coinElement) {
-        coinElement.style.display = "none";
-      }
+  for ( let i = 1; i <= 6; i++){
+    const displayCoin = document.getElementById(`coin-${i}`)
+    if(displayCoin) {
+        if (i <= this.coins) {
+            displayCoin.style.display = "block";
+        } else {
+            displayCoin.style.display = "none";
+        }
     }
+  }
+    
+  if (this.pizzaInHand === false && this.player.touchDepositArea(this.getPizza) === true) {
 
-    // Show the number of coins based on the current number of coins
-    for (let i = 1; i <= this.coins; i++) {
-      const coinElement = document.getElementById(`coin-${i}`);
-      if (coinElement) {
-        coinElement.style.display = "block";
-      }
-    }
-
-    // Check the ammount of coins to add them
-    if (this.coins === 4) {
-      document.getElementById("coin-4").style.display = "block";
-    }
-    else if (this.coins === 5) {
-      document.getElementById("coin-4").style.display = "block";
-      document.getElementById("coin-5").style.display = "block";
-    }
-    else if (this.coins === 6) {
-      document.getElementById("coin-4").style.display = "block";
-      document.getElementById("coin-5").style.display = "block";
-      document.getElementById("coin-6").style.display = "block";
-    }
-
-
-    // Check if player has deposited the prize at the end zone and returned back to the starting point
-    if (this.prizeInHand === false && this.player.touchDepositArea(this.depositPrize) === true) {
-
-      // When player reaches the deposit zone, remove prize in hand, add to total score and increase the overall speed of all obstacles.
-      this.prizeInHand = true;
+      this.pizzaInHand = true;
       this.coins++;
       this.gamespeed += 0.2;
       this.player.element.src = "./images/playerPizzaUp.png";
-      //successSound.play()
-      console.log(`Game speed has now been increased to${this.gamespeed}`);
     }
-
-
   }
 
-  // Method that ends the game
-  endGame() {
 
-    // Removes player
+  endGame() {
     this.player.element.remove();
 
-    // Remove all obstacles from the array of obstacles
     this.obstaclesArray.forEach(array => {
-
-      array.forEach(obstacle => {
-        // remove from the HTML
+        array.forEach(obstacle => {
         obstacle.element.remove();
       })
 
     });
-
-    backgroundMusic.pause();
-    backgroundMusic.currentTime = 0;
-    // variable becomes true
     this.gameIsOver = true;
-
-    // gameScreen and container are no longer displayed
     this.gameScreen.style.display = 'none';
     this.gameContainer.style.display = 'none';
-
-    // show end game screen
     this.endScreen.style.display = 'block';
   }
 
-  // method for victory screen
   victoryGame() {
 
-    // Remove player
     this.player.element.remove();
-
-    // Remove all obstacles from the array of obstacles
     this.obstaclesArray.forEach(array => {
-
-      array.forEach(obstacle => {
-        // remove from the HTML
+       array.forEach(obstacle => {
         obstacle.element.remove();
       })
+  });
 
-    });
-
-    // variable becomes true
     this.gameIsOver = true;
-
-    // gameScreen and container are no longer displayed
     this.gameScreen.style.display = 'none';
     this.gameContainer.style.display = 'none';
 
-
-    // show victory game screen
     this.victoryScreen.style.display = 'block';
-
-    backgroundMusic.pause();
-    backgroundMusic.currentTime = 0;
-
-    //let victoryMusic = new Audio('./audio/victory.wav')
-    //victoryMusic.play();
   }
-
 }
 
-let backgroundMusic = new Audio('./sounds/game.wma');
-//let damageSound = new Audio('./audio/damage.wav');
-//let pastelSound = new Audio('./audio/pastel.wav');
-//let successSound = new Audio('./audio/success.wav');
