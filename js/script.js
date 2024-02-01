@@ -1,5 +1,5 @@
 window.onload = function () {
-  
+
   let playButton = document.getElementById('play-button');
   let instructionsButton = document.getElementById('instructions-button');
   let creditsbutton = document.getElementById('credits-button');
@@ -30,7 +30,6 @@ window.onload = function () {
   function startGame() {
     game = new Game();
     game.start();
-   
   }
 
   function instructions() {
@@ -38,14 +37,14 @@ window.onload = function () {
     let startScreen = document.getElementById("start-screen");
     startScreen.style.display = "none";
     instructionsScreen.style.display = "block";
-}
+  }
 
   function credits() {
     let creditsScreen = document.getElementById("credits-screen");
     let startScreen = document.getElementById("start-screen");
     startScreen.style.display = "none";
     creditsScreen.style.display = "block";
-}
+  }
 
   function handleKeyDown(event) {
     const key = event.key;
@@ -55,11 +54,11 @@ window.onload = function () {
       "ArrowRight",
       "ArrowDown"
     ]
-    
+
     if (possibleKeystrokes.includes(key)) {
       event.preventDefault();
 
-    
+
       if (game && game.pizzaInHand) {
         switch (key) {
           case "ArrowLeft":

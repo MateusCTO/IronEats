@@ -1,7 +1,7 @@
 class Game {
   constructor() {
 
-  
+
     this.startScreen = document.getElementById('start-screen');
     this.gameScreen = document.getElementById('game-screen');
     this.endScreen = document.getElementById('end-screen');
@@ -37,7 +37,7 @@ class Game {
     this.gameContainer.style.display = 'block';
     this.gameScreen.style.height = `${this.height}px`;
     this.gameScreen.style.width = `${this.width}px`;
-  
+    backgroundMusic.play();
     this.gameLoop();
   }
 
@@ -46,31 +46,31 @@ class Game {
       return;
     }
     this.update();
-     window.requestAnimationFrame(() => this.gameLoop());
+    window.requestAnimationFrame(() => this.gameLoop());
   }
 
   updateGroupObjectsGround(arr, order) {
-      for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
 
       const obstacle = arr[i];
       obstacle.move();
 
-      if (this.player.didCollide(obstacle) ) {
-        
+      if (this.player.didCollide(obstacle)) {
+
         this.player.left = 300;
         this.player.top = 600;
         this.coins--;
-     
+        gotHitSound.play();
         this.pizzaInHand = true;
-    }
+      }
       else if (obstacle.left < -100 || obstacle.left + obstacle.width > 750) {
         obstacle.element.remove();
         this.obstaclesArray[order].splice(i, 1);
       }
     }
-    
 
-     const obstaclesDetails = [
+
+    const obstaclesDetails = [
       { speed: 2, height: 50, width: 50, top: 550, startPosition: 650, moveDirection: "left", imgSrc: "./images/Car1-test2-green.png" },
       { speed: 1.5, height: 50, width: 50, top: 500, startPosition: -100, moveDirection: "right", imgSrc: "./images/Car1-test2.orange.png" },
       { speed: 3, height: 50, width: 100, top: 450, startPosition: 650, moveDirection: "left", imgSrc: "./images/train1.png" },
@@ -84,16 +84,16 @@ class Game {
     ]
 
     const config = obstaclesDetails[order];
-  const { speed, height, width, top, startPosition, moveDirection, imgSrc } = config;
+    const { speed, height, width, top, startPosition, moveDirection, imgSrc } = config;
 
-  for (let i = 0; i < obstaclesDetails.length; i++) {
-    if (order === i && this.obstaclesArray[i].length < 1) {
-      this.obstaclesArray[i].push(new Obstacle(this.gameScreen, speed * this.gamespeed, height, width, top, startPosition, moveDirection, imgSrc));
+    for (let i = 0; i < obstaclesDetails.length; i++) {
+      if (order === i && this.obstaclesArray[i].length < 1) {
+        this.obstaclesArray[i].push(new Obstacle(this.gameScreen, speed * this.gamespeed, height, width, top, startPosition, moveDirection, imgSrc));
+      }
     }
-  }
 
   }
- 
+
   update() {
 
     document.body.style.backgroundImage = "url('./images/Background2.png')";
@@ -102,7 +102,7 @@ class Game {
       this.endGame();
     }
 
-    if (this.coins === 6) {
+    if (this.coins === 4) {
       this.victoryGame();
     }
 
@@ -111,28 +111,29 @@ class Game {
     if (this.player.gotPrize(this.deliverPizza)) {
       this.pizzaInHand = false;
       this.player.element.src = "./images/playerUp.png";
+      pizzaSound.play();
+      pizzaSound.loop = false;
     }
 
     for (let order = 0; order < 10; order++) {
       this.updateGroupObjectsGround(this.obstaclesArray[order], order);
     }
 
-  for ( let i = 1; i <= 6; i++){
-    const displayCoin = document.getElementById(`coin-${i}`)
-    if(displayCoin) {
+    for (let i = 1; i <= 6; i++) {
+      const displayCoin = document.getElementById(`coin-${i}`)
+      if (displayCoin) {
         if (i <= this.coins) {
-            displayCoin.style.display = "block";
+          displayCoin.style.display = "block";
         } else {
-            displayCoin.style.display = "none";
+          displayCoin.style.display = "none";
         }
+      }
     }
-  }
-    
-  if (this.pizzaInHand === false && this.player.touchDepositArea(this.getPizza) === true) {
 
+    if (this.pizzaInHand === false && this.player.touchDepositArea(this.getPizza) === true) {
       this.pizzaInHand = true;
       this.coins++;
-      this.gamespeed += 0.2;
+      this.gamespeed += 0.8;
       this.player.element.src = "./images/playerPizzaUp.png";
     }
   }
@@ -140,9 +141,8 @@ class Game {
 
   endGame() {
     this.player.element.remove();
-
     this.obstaclesArray.forEach(array => {
-        array.forEach(obstacle => {
+      array.forEach(obstacle => {
         obstacle.element.remove();
       })
 
@@ -151,22 +151,33 @@ class Game {
     this.gameScreen.style.display = 'none';
     this.gameContainer.style.display = 'none';
     this.endScreen.style.display = 'block';
+
+
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
+    gameOverSound.play();
   }
 
   victoryGame() {
-
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
+    winingSong.play();
     this.player.element.remove();
     this.obstaclesArray.forEach(array => {
-       array.forEach(obstacle => {
+      array.forEach(obstacle => {
         obstacle.element.remove();
       })
-  });
+    });
 
     this.gameIsOver = true;
     this.gameScreen.style.display = 'none';
     this.gameContainer.style.display = 'none';
-
     this.victoryScreen.style.display = 'block';
   }
 }
 
+let backgroundMusic = new Audio("./sounds/game.wma");
+let winingSong = new Audio("./sounds/winScreen.wma");
+let gameOverSound = new Audio("./sounds/endscreen.mp3")
+let gotHitSound = new Audio("./sounds/carHorn.mp3")
+let pizzaSound = new Audio("./sounds/pizzaa.mp3")
