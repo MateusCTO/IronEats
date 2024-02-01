@@ -40,6 +40,7 @@ class Obstacle {
       this.updatePosition();
     }
   }
+ 
 
 
 }

@@ -84,7 +84,7 @@ class Game {
     ]
 
     const config = obstaclesDetails[order];
-  const { speed, height, width, top, startPosition, moveDirection, imgSrc } = config;
+const { speed, height, width, top, startPosition, moveDirection, imgSrc } = config;
 
   for (let i = 0; i < obstaclesDetails.length; i++) {
     if (order === i && this.obstaclesArray[i].length < 1) {
