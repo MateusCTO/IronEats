@@ -106,7 +106,7 @@ class Game {
       this.endGame();
     }
 
-    if (this.coins === 6) {
+    if (this.coins === 4) {
       this.victoryGame();
     }
 

@@ -73,7 +73,7 @@ window.onload = function () {
 
           case "ArrowRight":
             game.player.left += 50;
-            game.player.element.src = "../docs/images/playerPizzaRight.png"
+            game.player.element.src = "./docs/images/playerPizzaRight.png"
             break;
 
           case "ArrowDown":
