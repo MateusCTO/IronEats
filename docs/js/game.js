@@ -16,7 +16,7 @@ class Game {
 
     this.coins = 3;
 
-    this.gamespeed = 1.3;
+    this.gamespeed = 1;
 
     this.gameIsOver = false;
 
@@ -54,13 +54,16 @@ class Game {
 
       const obstacle = arr[i];
       obstacle.move();
+      if (this.player.didCollide(obstacle) && this.coins > 3) {
+        this.gamespeed -= 0.15;
+      }
 
       if (this.player.didCollide(obstacle)) {
 
         this.player.left = 300;
         this.player.top = 600;
         this.coins--;
-        this.gamespeed -= 0.2;
+
         gotHitSound.play();
         this.pizzaInHand = true;
       }
@@ -106,7 +109,7 @@ class Game {
       this.endGame();
     }
 
-    if (this.coins === 4) {
+    if (this.coins === 5) {
       this.victoryGame();
     }
 
@@ -137,7 +140,7 @@ class Game {
     if (this.pizzaInHand === false && this.player.touchDepositArea(this.getPizza) === true) {
       this.pizzaInHand = true;
       this.coins++;
-      this.gamespeed += 0.2;
+      this.gamespeed += 0.15;
       this.player.element.src = "./docs/images/playerPizzaUp.png";
     }
   }
