@@ -63,22 +63,22 @@ window.onload = function () {
         switch (key) {
           case "ArrowLeft":
             game.player.left += -50;
-            game.player.element.src = "./docs/images/playerPizzaLeft.png";
+            game.player.element.src = "./images/playerPizzaLeft.png";
             break;
 
           case "ArrowUp":
             game.player.top += -50;
-            game.player.element.src = "./docs/images/playerPizzaUp.png"
+            game.player.element.src = "./images/playerPizzaUp.png"
             break;
 
           case "ArrowRight":
             game.player.left += 50;
-            game.player.element.src = "./docs/images/playerPizzaRight.png"
+            game.player.element.src = "./images/playerPizzaRight.png"
             break;
 
           case "ArrowDown":
             game.player.top += 50;
-            game.player.element.src = "./docs/images/playerPizzaDown.png"
+            game.player.element.src = "./images/playerPizzaDown.png"
             break;
 
         }
@@ -87,25 +87,25 @@ window.onload = function () {
         switch (key) {
           case "ArrowLeft":
             game.player.left += -50;
-            game.player.element.src = "./docs/images/playerLeft.png";
+            game.player.element.src = "./images/playerLeft.png";
 
             break;
 
           case "ArrowUp":
             game.player.top += -50;
-            game.player.element.src = "./docs/images/playerUp.png"
+            game.player.element.src = "./images/playerUp.png"
 
             break;
 
           case "ArrowRight":
             game.player.left += 50;
-            game.player.element.src = "./docs/images/playerRight.png"
+            game.player.element.src = "./images/playerRight.png"
 
             break;
 
           case "ArrowDown":
             game.player.top += 50;
-            game.player.element.src = "./docs/images/playerDown.png"
+            game.player.element.src = "./images/playerDown.png"
 
             break;
 
